@@ -1,35 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Icon, Label, Menu, Table } from "semantic-ui-react";
+import ProductService from "../services/productService";
 export default function ProductList() {
+  //hook
+  const [products, setProducts] = useState([]); //default u boş bir array gelecek yani verinin başlangıcı boş dizidir
+  
+  useEffect(()=>{ //component yüklenince yapılması istenen kod buraya yazılır
+    let productService =new ProductService()
+    productService.getProducts().then(result=>setProducts(result.data.data)) // promise yapısı
+  })
+
   return (
     <div>
       <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Header</Table.HeaderCell>
-            <Table.HeaderCell>Header</Table.HeaderCell>
-            <Table.HeaderCell>Header</Table.HeaderCell>
+            <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
+            <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
+            <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
+            <Table.HeaderCell>Açıklama</Table.HeaderCell>
+            <Table.HeaderCell>Kategori</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          <Table.Row>
-            <Table.Cell>
-              <Label ribbon>First</Label>
-            </Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-          </Table.Row>
+          { // js kodu yazmka için kıvırcık parantez kullanılır
+            products.map(product=>(
+              <Table.Row key={product.id}>
+              <Table.Cell>{product.productName}</Table.Cell>
+              <Table.Cell>{product.unitPrice}</Table.Cell>
+              <Table.Cell>{product.unitsInStock}</Table.Cell>
+              <Table.Cell>{product.quantityPerUnit}</Table.Cell>
+              <Table.Cell>{product.category.categoryName}</Table.Cell>
+            </Table.Row>
+            ))
+          }
+
         </Table.Body>
 
         <Table.Footer>
