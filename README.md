@@ -1,8 +1,76 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+<details>
+<summary>Creating app </summary><br>
+
+Yerel geliştirme makinenizde Node 10.16.0 veya sonraki bir sürüme sahip olmanız gerekir.
+
+Yeni bir uyuglama için aşağıdaki adımları takip ediniz
+
+##### npx
+
+```
+npx create-react-app camp-project
+```
+
+##### npm
+
+```
+npm init react-app camp-project
+
+```
+
+`! react uygulamalar için isimlendirme standartı - ile ayrılarak yazılmaktadır. (ör. my-app)`
+
+Geçerli klasörün içinde camp-project adlı bir dizin oluşturacaktır. Bu dizinin içinde, ilk proje yapısını oluşturacak ve geçişli bağımlılıkları kuracaktır.
+
+```
+camp-project
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+    └── setupTests.js
+```
+
+daha sonra proje dosyanızı klasörünzüde bulup çalıştırmak mümkün hale gelir.
+
+```
+cd camp-project
+```
+
+yayına almak için ise
+
+```
+npm start
+```
+
+`Proje çalışır hale gelmiş oldu.`
+
+</details>
 
 ## Available Scripts
+
+<details>
+<summary>Click for details of available scripts </summary><br>
 
 In the project directory, you can run:
 
@@ -68,3 +136,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+</details>
